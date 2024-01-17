@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utils.transformBinnedDF2CommunitiesAll &mdash; Documentation of package catencfamily 0.0.96 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=2f74cb28"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Documentation of package catencfamily
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">utils.transformBinnedDF2CommunitiesAll</a><ul>
+<li><a class="reference internal" href="#utils.transformBinnedDF2CommunitiesAll"><code class="docutils literal notranslate"><span class="pre">transformBinnedDF2CommunitiesAll()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Documentation of package catencfamily</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">utils.transformBinnedDF2CommunitiesAll</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/harnalashok/CatEncodersFamily/blob/_autosummary/utils.transformBinnedDF2CommunitiesAll.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="utils-transformbinneddf2communitiesall">
+<h1>utils.transformBinnedDF2CommunitiesAll<a class="headerlink" href="#utils-transformbinneddf2communitiesall" title="Permalink to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.transformBinnedDF2CommunitiesAll">
+<span class="sig-prename descclassname"><span class="pre">utils.</span></span><span class="sig-name descname"><span class="pre">transformBinnedDF2CommunitiesAll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathToGraphFolder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_binned</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algo</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/utils.html#transformBinnedDF2CommunitiesAll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#utils.transformBinnedDF2CommunitiesAll" title="Permalink to this definition"></a></dt>
+<dd><section id="desc">
+<h2>Desc<a class="headerlink" href="#desc" title="Permalink to this heading"></a></h2>
+<p>Search out all graph files and Replace every column in the binned Dataframe 
+as per network community
+Example binned/discrete dataframe:</p>
+<blockquote>
+<div><p>‘a’     ‘b
+–      —
+434     709
+435     789
+23      710
+78      756</p>
+</div></blockquote>
+<p>Replace col ‘a’ as per communities discovered in network ‘a_projected_b.gml’:
+434 &amp; 435 belong to one community and 23 &amp; 78 to other.</p>
+<blockquote>
+<div><p>‘a’     ‘b’
+—     —</p>
+<blockquote>
+<div><p>0      709
+0      789
+1      710
+1      756</p>
+</div></blockquote>
+</div></blockquote>
+<p>Similarly, replace col ‘b’ as per communities in ‘b_projected_a.gml’:</p>
+<blockquote>
+<div><p>‘a’     ‘b’
+—     —</p>
+<blockquote>
+<div><p>0      1
+0      0
+1      0
+1      1</p>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+<p>pathToGraphFolder: str: Folder that has graph files
+train_binned: DataFrame with binned/discrete columns
+algo: function object: networkx algorithm to be used to</p>
+<blockquote>
+<div><p>discover communities.
+Example: nx.community.greedy_modularity_communities</p>
+</div></blockquote>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a></h2>
+<dl class="simple">
+<dt>map_list: list of dictionaries. Each dictionary maps</dt><dd><p>levels in a column to a community</p>
+</dd>
+<dt>df: DataFrame: Transformed train_binned DataFrame.</dt><dd><p>If train_binned had columns other than columnNames,
+df would not contain those columns</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Prof. Ashok Harnal.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
